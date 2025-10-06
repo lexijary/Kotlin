@@ -1,8 +1,6 @@
-// Task 5.3.2: dice rolling simulation
-
 import kotlin.random.Random
 
-fun rollDie(sides: Int = 6, DieNo: Int = 1) {
+fun rollDie(sides: Int = 6) {
     if (sides in setOf(4, 6, 8, 10, 12, 20)) {
         println("Rolling a d$sides...")
         val result = Random.nextInt(1, sides + 1)
@@ -16,8 +14,6 @@ fun rollDie(sides: Int = 6, DieNo: Int = 1) {
 fun main() {
     print("Please enter how many sides you die has: ")
     val sideValue = readln()
-    print|("Please enter how many die you are using: ")
-    val DieNo = readline
     if (sideValue == "") {
         println("\nRolling a default 6-sided die:")
         rollDie()
