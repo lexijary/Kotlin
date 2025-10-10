@@ -23,6 +23,23 @@ class GradeTest : StringSpec({
         withClue("Mark=20") { grade(20) shouldBe "Fail" }
         withClue("Mark=0") { grade(0) shouldBe "Fail" }
     }
-
     // Add more tests here
+
+    "Grade of Pass for marks below 0" {
+        withClue("Mark=-1") { grade(-1) shouldBe "?" }
+        withClue("Mark=-10") { grade(-10) shouldBe "?" }
+        withClue("Mark=-100") { grade(-100) shouldBe "?" }
+    }
+
+    "Grade of Pass for marks above 100" {
+        withClue("Mark=101") { grade(101) shouldBe "?" }
+        withClue("Mark=300") { grade(300) shouldBe "?" }
+        withClue("Mark=1000") { grade(1000) shouldBe "?" }
+    }
+
+
+
+
+
+
 })
