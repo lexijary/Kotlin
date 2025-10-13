@@ -10,5 +10,7 @@ fun main() {
     val input = readLine()
 
     println("Input: $input")
-    //printReversed(input)
+    printReversed(input)
 }
+
+//Now we can finally explain why the compilation error in Null.kt occurs. The function readLine() has a return type of String?, meaning it might return a String object or it might return a null. Thus the type of variable input is also String?. The error occurs because printReversed() is expecting a non-nullable string as an argument, but it is being given a nullable string.
