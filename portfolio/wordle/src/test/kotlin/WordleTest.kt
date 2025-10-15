@@ -14,14 +14,20 @@ class WordleTest : StringSpec({
     } 
 
     "Reads all target words from a specified file, outputting a list of strings" {
-        val TestFile1 = ("UnitTestingFile.txt")
-        readWordList(TestFile1) shouldBe("APPLE, BERRY, PEACH, MANGO, GUAVA, PAPAW")
-        val TestFile2 = ("UnitTestingEmptyFile.txt")
-        readWordList(TestFile2) shouldBe emptyList<String>()
+        {
+            val TestFile1 = "data/UnitTestingFile.txt"
+            val TestList1 = listOf("APPLE, BERRY, PEACH, MANGO, GUAVA, PAPAW")
+            readWordList(TestFile1) shouldBe TestList1
+        }
+        {
+            val TestFile2 = "data/UnitTestingEmptyFile.txt"
+            readWordList(TestFile2) shouldBe emptyList<String>()
+        }
+
     }
 
     "A random word is picked and checked to see if its in the target list" {
-        val TargetTestWords = readWordList("UnitTestingFile")
+        val TargetTestWords = readWordList("data/UnitTestingFile.txt")
         val RandomTestWords = TargetTestWords.random()
         (RandomTestWords in TargetTestWords) shouldBe true
     }
