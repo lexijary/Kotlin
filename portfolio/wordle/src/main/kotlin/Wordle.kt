@@ -38,19 +38,15 @@ fun pickRandomWord(words: MutableList<String>): String {
 // to try again.
 
 fun obtainGuess(attempt: Int): String {
-    val running = true
     println("Attempt number ${attempt}, please enter a word: ")
-    val CurrentWord = readln().uppercase()
+    var CurrentWord = readln().uppercase()
     if (isValid(CurrentWord) == true) {
         return CurrentWord
     }
-    else{
-        while (running == true) {
+    else {
+        while (isValid(CurrentWord) == false) {
             println("Invalid word, please re-enter: ")
-            val CurrentWord = readln().uppercase()
-            if (isValid(CurrentWord) == true) {
-                running == false
-            }
+            CurrentWord = readln().uppercase()
         }
         return CurrentWord
     }
